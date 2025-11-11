@@ -7,12 +7,45 @@
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    var iconeAuditório = L.icon({
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/753/753839.png',
-        iconSize: [22, 22], // largura, altura
-        iconAnchor: [19, 38], // ponto de ancoragem (base do ícone)
-        popupAnchor: [0, -30] // onde abre o popup
-        });
+    function criarMarcadorComFundo(lat, lng, iconUrl, corFundo, popupTexto) {
+      // Círculo de fundo
+      L.circleMarker([lat, lng], {
+        radius: 18,
+        fillColor: corFundo,
+        color: "#fff",
+        weight: 2,
+        opacity: 1,
+        fillOpacity: 0.9
+      }).addTo(map);
+
+      // Ícone sobreposto
+      L.marker([lat, lng], {
+        icon: L.icon({
+          iconUrl: iconUrl,
+          iconSize: [24, 24],
+          iconAnchor: [12, 12]
+        })
+      }).addTo(map).bindPopup(popupTexto);
+    }
+
+    // criarMarcadorComFundo(38.667089, -9.199403, "https://cdn-icons-png.flaticon.com/512/3075/3075977.png", "#007bff", "<b>Cantina</b>");
+    
+    // criarMarcadorComFundo(38.667089, -9.199403, "https://cdn-icons-png.flaticon.com/512/3075/3075977.png", "#007bff", "<b>Cantina</b>");
+
+    // var iconSaida = L.icon({
+    //     iconUrl: '',
+    //     iconSize: [22, 22], // largura, altura
+    //     iconAnchor: [19, 38], // ponto de ancoragem (base do ícone)
+    //     popupAnchor: [0, -30] // onde abre o popup
+        
+    //     });
+
+    // var iconeAuditório = L.icon({
+    //     iconUrl: 'https://cdn-icons-png.flaticon.com/512/753/753839.png',
+    //     iconSize: [22, 22], // largura, altura
+    //     iconAnchor: [19, 38], // ponto de ancoragem (base do ícone)
+    //     popupAnchor: [0, -30] // onde abre o popup
+    //     });
 
     // Estacionamento A
     var zonaEstacionamento = L.rectangle([
@@ -24,7 +57,7 @@
         fillColor: "#007bff",  // cor de preenchimento
         fillOpacity: 0.3        // transparência
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento</b>");
+    .bindPopup("<b>Zona de Estacionamento</b><br>Interior");
     
     // Estacionamento B
     var zonaEstacionamentoB = L.polygon([
@@ -38,7 +71,7 @@
     fillColor: "#007bff",
     fillOpacity: 0.3
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento B</b>");
+    .bindPopup("<b>Zona de Estacionamento</b><br>Interior");
 
 
         // Estacionamento C
@@ -53,7 +86,7 @@
     fillColor: "#007bff",
     fillOpacity: 0.3
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento B</b>");
+    .bindPopup("<b>Zona de Estacionamento</b><br>Interior");
         // Estacionamento D
     var zonaEstacionamentoD = L.polygon([
     [38.667103914693804, -9.199098766765891],
@@ -66,61 +99,108 @@
     fillColor: "#007bff",
     fillOpacity: 0.3
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento B</b>");
+    .bindPopup("<b>Zona de Estacionamento</b><br>Interior");
     
-    // Estacionamento Externo
+    // Estacionamento Exterior
     var zonaEstacionamentoE = L.polygon([
     [38.66847775989481, -9.200201387137014],
     [38.66852819250671, -9.20018312000617],
     [38.668486206247145, -9.199319513270048],
     [38.668447630304996, -9.19932713612741]
     ], {
-    color: "#2dff8f",
+    color: "#ff0c61",
     weight: 2,
-    fillColor: "#2dff8f",
+    fillColor: "#ff0c61",
     fillOpacity: 0.3
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento Externo</b>");
+    .bindPopup("<b>Zona de Estacionamento</b><br>Exterior");
     
-    // Estacionamento Externo2
+    // Estacionamento Exterior2
     var zonaEstacionamentoE2 = L.polygon([
     [38.66708981019035, -9.19895117409531],
     [38.667103372344286, -9.198875757374914],
     [38.667607742283565, -9.199073392371272],
     [38.66760133309658, -9.199151069083177]
     ], {
-    color: "#2dff8f",
+    color: "#ff0c61",
     weight: 2,
-    fillColor: "#2dff8f",
+    fillColor: "#ff0c61",
     fillOpacity: 0.3
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento Externo</b>");
+    .bindPopup("<b>Zona de Estacionamento</b><br>Exterior");
 
-    // Estacionamento Externo3
+    // Estacionamento Exterior3
     var zonaEstacionamentoE2 = L.polygon([
     [38.66698330326094, -9.200432006580284],
     [38.66710025336563, -9.201036759070146],
     [38.6670542085695, -9.201051490326606],
     [38.666931483264804, -9.200456777243126]
     ], {
-    color: "#2dff8f",
+    color: "#ff0c61",
     weight: 2,
-    fillColor: "#2dff8f",
+    fillColor: "#ff0c61",
     fillOpacity: 0.3
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento Externo</b>");
+    .bindPopup("<b>Zona de Estacionamento</b><br>Exterior");
 
-    // Pontos de interesse
-    var pontos = {
-      entrada: L.marker([38.666973680275646, -9.200171536996534]).addTo(map)
-        .bindPopup(`<b>Entrada Principal</b><br>Horário: 8h00 – 21h00`),
-      saida: L.marker([38.66770701861505, -9.199233695314595]).addTo(map)
-        .bindPopup(`<b>Entrada Pedonal</b><br>Horário: 21h00 – 23h00`),
-      auditorio: L.marker([38.66824089491979, -9.20019812495795]).addTo(map)
-        .bindPopup(`<b>Auditório</b>`),
-      cantina: L.marker([38.66708941491236, -9.199403704976435], { icon: iconeAuditório }).addTo(map)
-        .bindPopup(`<b>Cantina</b><br>Aberta das 12h00 às 15h00.`)
-    };
+    // Função para criar um marcador com fundo colorido e ícone
+function criarMarcadorComFundo(lat, lng, iconUrl, corFundo, popupTexto) {
+  // Círculo de fundo
+  L.circleMarker([lat, lng], {
+    radius: 18, // tamanho do círculo
+    fillColor: corFundo,
+    color: "#fff",
+    weight: 2,
+    opacity: 1,
+    fillOpacity: 0.9
+  }).addTo(map);
+
+  // Ícone sobreposto
+  return L.marker([lat, lng], {
+    icon: L.icon({
+      iconUrl: iconUrl,
+      iconSize: [26, 26],
+      iconAnchor: [13, 13],
+      popupAnchor: [0, -15]
+    })
+  }).addTo(map).bindPopup(popupTexto);
+}
+
+// Pontos de interesse destacados
+var pontos = {
+  entrada: criarMarcadorComFundo(
+    38.666973680275646,
+    -9.200171536996534,
+    "https://cdn-icons-png.flaticon.com/128/3774/3774278.png",
+    "#d26affff",
+    `<b>Entrada Principal</b><br>Horário: 8h00 – 21h00<br><button class='btn btn-directions' onclick="abrirNavegacao('entrada')">Direções até aqui</button>`
+  ),
+
+  saida: criarMarcadorComFundo(
+    38.66770701861505,
+    -9.199233695314595,
+    "https://cdn-icons-png.flaticon.com/128/15709/15709063.png",
+    "#28a745",
+    `<b>Entrada Pedonal</b><br>Horário: 21h00 – 23h00<br><button class='btn btn-directions' onclick="abrirNavegacao('saida')">Direções até aqui</button>`
+  ),
+
+  auditorio: criarMarcadorComFundo(
+    38.66824089491979,
+    -9.20019812495795,
+    "https://cdn-icons-png.flaticon.com/128/14002/14002559.png",
+    "#ff9900",
+    `<b>Auditório</b><br><button class='btn btn-directions' onclick="abrirNavegacao('auditorio')">Direções até aqui</button>`
+  ),
+
+  cantina: criarMarcadorComFundo(
+    38.66708941491236,
+    -9.199403704976435,
+    "https://cdn-icons-png.flaticon.com/512/3075/3075977.png",
+    "#007bff",
+    `<b>Cantina</b><br>Aberta das 12h00 às 15h00.<br><button class='btn btn-directions' onclick="abrirNavegacao('cantina')">Direções até aqui</button>`
+  )
+};
+
 
     var rota = null;
     var posicaoAtual = null;
@@ -180,3 +260,30 @@
         })
       }).addTo(map);
     }
+
+    function abrirNavegacao(destino) {
+  if (!posicaoAtual) {
+    alert("A localização ainda não foi obtida. Aguarde alguns segundos.");
+    return;
+  }
+
+  var latDestino = pontos[destino].getLatLng().lat;
+  var lngDestino = pontos[destino].getLatLng().lng;
+
+  var latOrigem = posicaoAtual[0];
+  var lngOrigem = posicaoAtual[1];
+
+  // Link Google Maps
+  var linkGoogleMaps = `https://www.google.com/maps/dir/?api=1&origin=${latOrigem},${lngOrigem}&destination=${latDestino},${lngDestino}&travelmode=driving`;
+
+  // Link Waze
+  var linkWaze = `https://waze.com/ul?ll=${latDestino},${lngDestino}&navigate=yes`;
+
+  // Abrir janela de escolha (pode adaptar para botões)
+  var escolha = prompt("Digite 1 para Google Maps, 2 para Waze:");
+  if (escolha === "1") {
+    window.open(linkGoogleMaps, "_blank");
+  } else if (escolha === "2") {
+    window.open(linkWaze, "_blank");
+  }
+}
