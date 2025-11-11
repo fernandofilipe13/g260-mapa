@@ -273,17 +273,8 @@ var pontos = {
   var latOrigem = posicaoAtual[0];
   var lngOrigem = posicaoAtual[1];
 
-  // Link Google Maps
   var linkGoogleMaps = `https://www.google.com/maps/dir/?api=1&origin=${latOrigem},${lngOrigem}&destination=${latDestino},${lngDestino}&travelmode=driving`;
 
-  // Link Waze
-  var linkWaze = `https://waze.com/ul?ll=${latDestino},${lngDestino}&navigate=yes`;
-
-  // Abrir janela de escolha (pode adaptar para botões)
-  var escolha = prompt("Digite 1 para Google Maps, 2 para Waze:");
-  if (escolha === "1") {
-    window.open(linkGoogleMaps, "_blank");
-  } else if (escolha === "2") {
-    window.open(linkWaze, "_blank");
-  }
+  window.open(linkGoogleMaps, "_blank");
+ 
 }
