@@ -24,7 +24,7 @@
         fillColor: "#007bff",  // cor de preenchimento
         fillOpacity: 0.3        // transparência
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento</b><br>Estacionamento reservado a alunos.");
+    .bindPopup("<b>Zona de Estacionamento</b>");
     
     // Estacionamento B
     var zonaEstacionamentoB = L.polygon([
@@ -38,7 +38,7 @@
     fillColor: "#007bff",
     fillOpacity: 0.3
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento B</b><br>Estacionamento reservado a alunos.");
+    .bindPopup("<b>Zona de Estacionamento B</b>");
 
 
         // Estacionamento C
@@ -53,7 +53,7 @@
     fillColor: "#007bff",
     fillOpacity: 0.3
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento B</b><br>Estacionamento reservado a alunos.");
+    .bindPopup("<b>Zona de Estacionamento B</b>");
         // Estacionamento D
     var zonaEstacionamentoD = L.polygon([
     [38.667103914693804, -9.199098766765891],
@@ -66,7 +66,7 @@
     fillColor: "#007bff",
     fillOpacity: 0.3
     }).addTo(map)
-    .bindPopup("<b>Zona de Estacionamento B</b><br>Estacionamento reservado a alunos.");
+    .bindPopup("<b>Zona de Estacionamento B</b>");
     
     // Estacionamento Externo
     var zonaEstacionamentoE = L.polygon([
@@ -113,11 +113,11 @@
     // Pontos de interesse
     var pontos = {
       entrada: L.marker([38.666973680275646, -9.200171536996534]).addTo(map)
-        .bindPopup(`<b>Entrada Principal</b><br>Horário: 8h00 – 20h00`),
+        .bindPopup(`<b>Entrada Principal</b><br>Horário: 8h00 – 21h00`),
       saida: L.marker([38.66770701861505, -9.199233695314595]).addTo(map)
         .bindPopup(`<b>Entrada Pedonal</b><br>Horário: 21h00 – 23h00`),
       auditorio: L.marker([38.66824089491979, -9.20019812495795]).addTo(map)
-        .bindPopup(`<b>Auditório</b><br>Espaço para eventos e apresentações.`),
+        .bindPopup(`<b>Auditório</b>`),
       cantina: L.marker([38.66708941491236, -9.199403704976435], { icon: iconeAuditório }).addTo(map)
         .bindPopup(`<b>Cantina</b><br>Aberta das 12h00 às 15h00.`)
     };
