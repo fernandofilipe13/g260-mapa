@@ -222,10 +222,13 @@ var pontos = {
         alert("A localização ainda não foi obtida. Aguarde alguns segundos.");
         return;
       }
-
+      
+      pontos[destino].openPopup();
+      
       if (rota) {
         map.removeControl(rota);
       }
+      
 
       rota = L.Routing.control({
         waypoints: [
@@ -242,7 +245,7 @@ var pontos = {
       }).addTo(map);
     }
 
-    function abrirNavegacao(destino) {
+function abrirNavegacao(destino) {
   if (!posicaoAtual) {
     alert("A localização ainda não foi obtida. Aguarde alguns segundos.");
     return;
