@@ -28,25 +28,6 @@
       }).addTo(map).bindPopup(popupTexto);
     }
 
-    // criarMarcadorComFundo(38.667089, -9.199403, "https://cdn-icons-png.flaticon.com/512/3075/3075977.png", "#007bff", "<b>Cantina</b>");
-    
-    // criarMarcadorComFundo(38.667089, -9.199403, "https://cdn-icons-png.flaticon.com/512/3075/3075977.png", "#007bff", "<b>Cantina</b>");
-
-    // var iconSaida = L.icon({
-    //     iconUrl: '',
-    //     iconSize: [22, 22], // largura, altura
-    //     iconAnchor: [19, 38], // ponto de ancoragem (base do ícone)
-    //     popupAnchor: [0, -30] // onde abre o popup
-        
-    //     });
-
-    // var iconeAuditório = L.icon({
-    //     iconUrl: 'https://cdn-icons-png.flaticon.com/512/753/753839.png',
-    //     iconSize: [22, 22], // largura, altura
-    //     iconAnchor: [19, 38], // ponto de ancoragem (base do ícone)
-    //     popupAnchor: [0, -30] // onde abre o popup
-    //     });
-
     // Estacionamento A
     var zonaEstacionamento = L.rectangle([
     [38.668306487026655, -9.199612661495365], // canto sudoeste (SW)
@@ -171,7 +152,7 @@ var pontos = {
   entrada: criarMarcadorComFundo(
     38.666973680275646,
     -9.200171536996534,
-    "https://cdn-icons-png.flaticon.com/128/3774/3774278.png",
+    "https://cdn-icons-png.flaticon.com/128/2555/2555013.png",
     "#d26affff",
     `<b>Entrada Principal</b><br>Horário: 8h00 – 21h00<br><button class='btn btn-directions' onclick="abrirNavegacao('entrada')">Direções até aqui</button>`
   ),
@@ -179,7 +160,7 @@ var pontos = {
   saida: criarMarcadorComFundo(
     38.66770701861505,
     -9.199233695314595,
-    "https://cdn-icons-png.flaticon.com/128/15709/15709063.png",
+    "https://cdn-icons-png.flaticon.com/128/1049/1049261.png",
     "#28a745",
     `<b>Entrada Pedonal</b><br>Horário: 21h00 – 23h00<br><button class='btn btn-directions' onclick="abrirNavegacao('saida')">Direções até aqui</button>`
   ),
